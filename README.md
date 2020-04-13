@@ -11,7 +11,7 @@ help       Show this help message        Required Arguments: ['NONE']
 ```
 
 ## Command Usage
-### fr
+### fr (Find fresnal coef)
 fr supports both radius and degree input. It can also detect Total Internal Reflection automatically.
 ```
 ECE318_toolkit >> fr 1 1.5 30deg
