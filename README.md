@@ -15,11 +15,11 @@ help       Show this help message                         Required Arguments: ['
 fr supports both radius and degree input. It can also detect Total Internal Reflection automatically.
 ```
 ECE318_toolkit >> fr 1 1.5 30deg
-theta_t:  0.3398369094541219 = 19.471 deg
+theta_t:  0.3398 = 19.471 deg
 r_te:  -0.2404 		t_te:  0.7596
 r_tm:  -0.1589 		t_tm:  0.7726
 ECE318_toolkit >> fr 1 1.5 0.5235987
-theta_t:  0.3398368631598069 = 19.471 deg
+theta_t:  0.3398 = 19.471 deg
 r_te:  -0.2404 		t_te:  0.7596
 r_tm:  -0.1589 		t_tm:  0.7726
 
