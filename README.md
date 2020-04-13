@@ -5,9 +5,9 @@ Toolkit helpful to the course ECE318 fundamental optics.
 ## Usage
 ECE318 toolkit now support the following commands:
 ```
-fr         Find fresnal coef             Required Arguments: ['ni', 'nt', 'theta_i']
-q/quit     Quit the toolkit              Required Arguments: ['NONE']
-help       Show this help message        Required Arguments: ['NONE']
+fr         Find fresnal coef and return refractive angle  Required Arguments: ['ni', 'nt', 'theta_i']
+q/quit     Quit the toolkit                               Required Arguments: ['NONE']
+help       Show this help message                         Required Arguments: ['NONE']
 ```
 
 ## Command Usage
@@ -15,10 +15,11 @@ help       Show this help message        Required Arguments: ['NONE']
 fr supports both radius and degree input. It can also detect Total Internal Reflection automatically.
 ```
 ECE318_toolkit >> fr 1 1.5 30deg
+theta_t:  0.3398369094541219 = 19.471 deg
 r_te:  -0.2404 		t_te:  0.7596
 r_tm:  -0.1589 		t_tm:  0.7726
-
 ECE318_toolkit >> fr 1 1.5 0.5235987
+theta_t:  0.3398368631598069 = 19.471 deg
 r_te:  -0.2404 		t_te:  0.7596
 r_tm:  -0.1589 		t_tm:  0.7726
 
