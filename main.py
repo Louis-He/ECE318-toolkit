@@ -71,7 +71,7 @@ def cmd_fresnal(cmd):
         print_to_terminal("WARNING", "Total Internal Reflection")
         print('phi_te: ', res[1][0], '=', round(rad_2_deg(res[1][0]), 3), 'deg\t\tphi_tm: ', res[1][1], '=', round(rad_2_deg(res[1][1]), 3), 'deg')
     else:
-        print('theta_t: ', res[1][4], '=', round(rad_2_deg(res[1][4]), 3),  'deg')
+        print('theta_t: ', round(res[1][4], 4), '=', round(rad_2_deg(res[1][4]), 3),  'deg')
         print('r_te: ', res[1][0], '\t\tt_te: ', res[1][1])
         print('r_tm: ', res[1][2], '\t\tt_tm: ', res[1][3])
 
