@@ -1,6 +1,6 @@
 # ECE318-toolkit
 
-Toolkit help to the courde ECE318 fundamental optics.
+Toolkit helpful to the course ECE318 fundamental optics.
 
 ## Usage
 ECE318 toolkit now support the following commands:
