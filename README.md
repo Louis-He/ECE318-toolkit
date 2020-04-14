@@ -27,3 +27,11 @@ ECE318_toolkit >> fr 1.5 1 60deg
 Total Internal Reflection
 phi_te:  -1.671 = -95.741 deg		phi_tm:  0.7645 = 43.803 deg
 ```
+### finesse
+fin supports both percentage expression and float expression.
+```
+ECE318_toolkit >> fin 0.95
+Finesse:  61.24091501940472
+ECE318_toolkit >> fin 95%
+Finesse:  61.24091501940472
+```
