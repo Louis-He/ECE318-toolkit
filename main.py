@@ -80,14 +80,17 @@ def cmd_finesse(cmd):
         print_args_error(cmd[0])
         return
     R = cmd[1]
-
-    if R[-1:] == '%':
-        R = float(R[:-1]) / 100.0
-    elif float(R) > 1.0:
+    try:
+        if R[-1:] == '%':
+            R = float(R[:-1]) / 100.0
+        elif float(R) > 1.0:
+            finesse_help()
+            return -1
+        else:
+            R = float(R)
+    except:
         print_type_error("fin")
         return -1
-    else:
-        R = float(R)
 
 
     F = (4 * R) / ((1 - R) *(1 - R))
