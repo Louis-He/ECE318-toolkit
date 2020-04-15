@@ -86,6 +86,9 @@ def cmd_finesse(cmd):
         elif float(R) > 1.0:
             finesse_help()
             return -1
+        elif float(R) < 0:
+            finesse_help()
+            return -1
         else:
             R = float(R)
     except:

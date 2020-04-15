@@ -32,7 +32,7 @@ def print_type_error(cmd):
     print(terminalcolors["FAIL"] + cmd + " needs " + str(len(cmdList[cmd]["args"])) + " arguments with type: " + type_needed + terminalcolors["ENDC"])
 
 def finesse_help():
-    print(terminalcolors["FAIL"] + "Reflectivity cannot be greater than 1.0" + terminalcolors["ENDC"])
+    print(terminalcolors["FAIL"] + "Reflectivity cannot be greater than 1.0 pr less than 0.0" + terminalcolors["ENDC"])
 
 def printhelp(cmd):
     if len(cmd) == 1:
