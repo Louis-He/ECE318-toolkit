@@ -6,10 +6,10 @@ terminalcolors = {"OKGREEN": '\033[92m',
 version = "0.1"
 cmdList = {
     "fr": {"args": ["ni", "nt", "theta_i"], "types": ["float", "float", "float"], "desc": "Find fresnal coef and return refractive angle."},
+    "fin": {"args": ["R"], "types": ["float"], "desc": "Find finesse with reflectivity."},
     "q/quit": {"args": ["NONE"], "desc": "Quit the toolkit."},
     "help": {"args": ["NONE"], "desc": "Show this help message."}
 }
-
 def print_to_terminal(type, text):
     print(terminalcolors[type] + text + terminalcolors["ENDC"])
 
@@ -30,6 +30,9 @@ def print_type_error(cmd):
     type_needed = type_needed[: -2]
     type_needed += "."
     print(terminalcolors["FAIL"] + cmd + " needs " + str(len(cmdList[cmd]["args"])) + " arguments with type: " + type_needed + terminalcolors["ENDC"])
+
+def finesse_help():
+    print(terminalcolors["FAIL"] + "Reflectivity cannot be greater than 1.0" + terminalcolors["ENDC"])
 
 def printhelp(cmd):
     if len(cmd) == 1:

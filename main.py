@@ -75,13 +75,37 @@ def cmd_fresnal(cmd):
         print('r_te: ', res[1][0], '\t\tt_te: ', res[1][1])
         print('r_tm: ', res[1][2], '\t\tt_tm: ', res[1][3])
 
+def cmd_finesse(cmd):
+    if len(cmd) != 2:
+        print_args_error(cmd[0])
+        return
+    R = cmd[1]
+    try:
+        if R[-1:] == '%':
+            R = float(R[:-1]) / 100.0
+        elif float(R) > 1.0:
+            finesse_help()
+            return -1
+        else:
+            R = float(R)
+    except:
+        print_type_error("fin")
+        return -1
+
+
+    F = (4 * R) / ((1 - R) *(1 - R))
+    fin = (np.pi * np.sqrt(F)) / 2
+    print('Finesse: ', fin)
+
 
 if __name__ == '__main__':
     print_to_terminal("OKGREEN", "ECE318 toolkit version " + version)
     print("source code avaliable @ https://github.com/Louis-He/ECE318-toolkit\n")
     print_to_terminal("WARNING",
-                      "Degree supported by adding deg to the end, eg. 30deg.\nOtherwise, the toolkit will regard all your inputs as in radius.")
+                      "Degree supported by adding deg to the end, eg. 30deg.\nOtherwise, the toolkit will regard all your inputs as in radius.\n"
+                      "percentage(%) expression supported (e.g. 95% == 0.95)")
     print("Type \"help\" to know more about supported commands.\n")
+
     while (True):
         cmd = input("ECE318_toolkit >> ")
         cmd = cmd.split()
@@ -100,3 +124,5 @@ if __name__ == '__main__':
             printhelp(cmd)
         elif cmd[0] == "fr":
             cmd_fresnal(cmd)
+        elif cmd[0] == "fin":
+            cmd_finesse(cmd)
