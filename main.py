@@ -127,7 +127,7 @@ if __name__ == '__main__':
     print("source code avaliable @ https://github.com/Louis-He/ECE318-toolkit\n")
     print_to_terminal("WARNING",
                       "Degree supported by adding deg to the end, eg. 30deg.\nOtherwise, the toolkit will regard all your inputs as in radius.\n"
-                      "percentage(%) expression supported (e.g. 95% == 0.95)")
+                      "percentage(%) expression supported (e.g. 95% = 0.95)")
     print("Type \"help\" to know more about supported commands.\n")
 
     while (True):
