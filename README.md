@@ -36,4 +36,6 @@ ECE318_toolkit >> fin2r 76.95
 Reflectivity: 0.959998
 ECE318_toolkit >> r2fin 0.96
 Coef of Finesse: 2400.0 Finesse:  76.953
+ECE318_toolkit >> r2fin 96%
+Coef of Finesse: 2400.0 Finesse:  76.953
 ```
