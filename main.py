@@ -1,5 +1,6 @@
 import numpy as np
 from color import *
+from convert import *
 
 def rad_2_deg(theta):
     return theta / np.pi * 180
@@ -32,8 +33,10 @@ def get_fresnal_coef(ni, nt, theta_i):
     if theta_t == -1:
         phi_te = -2 * np.arctan((nt * np.sqrt(np.power(ni * np.sin(theta_i) / nt, 2) - 1)) / (ni * np.cos(theta_i)))
         phi_tm = -2 * np.arctan((ni * np.sqrt(np.power(ni * np.sin(theta_i) / nt, 2) - 1)) / (nt * np.cos(theta_i))) + np.pi
+        p_beta1 = nt * np.sqrt((ni / nt * np.sin(theta_i))**2 - 1) # part of beta for pen_dep
+        p_beta2 = 2 * p_beta1 * np.pi / nt
 
-        return ('T', [round(phi_te, 4), round(phi_tm, 4)])
+        return ('T', [round(phi_te, 4), round(phi_tm, 4), round(p_beta1, 4), round(p_beta2, 4)])
     else:
         r_te = (ni * np.cos(theta_i) - nt * np.cos(theta_t)) / (ni * np.cos(theta_i) + nt * np.cos(theta_t))
         r_tm = (2 * ni * np.cos(theta_i)) / (ni * np.cos(theta_i) + nt * np.cos(theta_t))
@@ -70,11 +73,12 @@ def cmd_fresnal(cmd):
     if (res[0] == 'T'):
         print_to_terminal("WARNING", "Total Internal Reflection")
         print('phi_te: ', res[1][0], '=', round(rad_2_deg(res[1][0]), 3), 'deg\t\tphi_tm: ', res[1][1], '=', round(rad_2_deg(res[1][1]), 3), 'deg')
+        print('(for pen_dep calculation) beta: ', res[1][2], '*(w/c)', ' = ', res[1][3], '/freq')
     else:
         print('theta_t: ', round(res[1][4], 4), '=', round(rad_2_deg(res[1][4]), 3),  'deg')
         print('r_te: ', res[1][0], '\t\tt_te: ', res[1][1])
         print('r_tm: ', res[1][2], '\t\tt_tm: ', res[1][3])
-
+        
 def cmd_r2fin(cmd):
     if len(cmd) != 2:
         print_args_error(cmd[0])
@@ -122,14 +126,15 @@ def cmd_fin2r(cmd):
     else:
         print('Reflectivity:', round(R[0],6))
 
+
 if __name__ == '__main__':
     print_to_terminal("OKGREEN", "ECE318 toolkit version " + version)
     print("source code avaliable @ https://github.com/Louis-He/ECE318-toolkit\n")
     print_to_terminal("WARNING",
                       "Degree supported by adding deg to the end, eg. 30deg.\nOtherwise, the toolkit will regard all your inputs as in radius.\n"
-                      "percentage(%) expression supported (e.g. 95% = 0.95)")
+                      "percentage(%) expression supported (e.g. 95% = 0.95)\n"
+                      "4 signicicant digits output for light property conversion (e.g. 4.189e+06)")
     print("Type \"help\" to know more about supported commands.\n")
-
     while (True):
         cmd = input("ECE318_toolkit >> ")
         cmd = cmd.split()
@@ -151,4 +156,6 @@ if __name__ == '__main__':
         elif cmd[0] == "r2fin":
             cmd_r2fin(cmd)
         elif cmd[0] == "fin2r":
-            cmd_fin2r(cmd)
+            cmd_fin2r(cmd)        
+        elif cmd[0] == "prop":
+            cmd_convert(cmd)

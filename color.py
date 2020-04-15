@@ -7,10 +7,12 @@ version = "0.1"
 cmdList = {
     "fr": {"args": ["ni", "nt", "theta_i"], "types": ["float", "float", "float"], "desc": "Find fresnal coef and return refractive angle."},
     "r2fin": {"args": ["R"], "types": ["float"], "desc": "Find finesse with reflectivity."},
-    "fin2r": {"args": ["Finesse"], "types": ["float"], "desc": "Find reflectivity with finesse."},
+    "fin2r": {"args": ["Finesse"], "types": ["float"], "desc": "Find reflectivity with finesse."},    
+    "prop": {"args": ["type", "value"], "types": ["string", "float"], "desc": "Conversion between light spacial and temporal properties."},
     "q/quit": {"args": ["NONE"], "desc": "Quit the toolkit."},
     "help": {"args": ["NONE"], "desc": "Show this help message."}
 }
+
 def print_to_terminal(type, text):
     print(terminalcolors[type] + text + terminalcolors["ENDC"])
 
@@ -37,6 +39,9 @@ def r2fin_help():
 
 def fin2r_help():
     print(terminalcolors["FAIL"] + "Finesse cannot be less than 0.0" + terminalcolors["ENDC"])
+
+def property_help(name):
+    print(terminalcolors["FAIL"] + "Property with name: \"" + name + "\" is not found" + terminalcolors["ENDC"])
 
 def printhelp(cmd):
     if len(cmd) == 1:
