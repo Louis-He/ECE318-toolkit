@@ -3,6 +3,7 @@ terminalcolors = {"OKGREEN": '\033[92m',
                   "FAIL": '\033[91m',
                   "ENDC": '\033[0m'}
 
+version = "0.1"
 cmdList = {
     "fr": {"args": ["ni", "nt", "theta_i"], "types": ["float", "float", "float"], "desc": "Find fresnal coef and return refractive angle."},
     "q/quit": {"args": ["NONE"], "desc": "Quit the toolkit."},

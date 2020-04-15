@@ -77,7 +77,7 @@ def cmd_fresnal(cmd):
 
 
 if __name__ == '__main__':
-    print_to_terminal("OKGREEN", "ECE318 toolkit version 0.1")
+    print_to_terminal("OKGREEN", "ECE318 toolkit version " + version)
     print("source code avaliable @ https://github.com/Louis-He/ECE318-toolkit\n")
     print_to_terminal("WARNING",
                       "Degree supported by adding deg to the end, eg. 30deg.\nOtherwise, the toolkit will regard all your inputs as in radius.")
