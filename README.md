@@ -5,9 +5,11 @@ Toolkit helpful to the course ECE318 fundamental optics.
 ## Usage
 ECE318 toolkit now support the following commands:
 ```
-fr         Find fresnel coef and return refractive angle  Required Arguments: ['ni', 'nt', 'theta_i']
-q/quit     Quit the toolkit                               Required Arguments: ['NONE']
-help       Show this help message                         Required Arguments: ['NONE']
+fr         Find fresnal coef and return refractive angle      Required Arguments: ['ni', 'nt', 'theta_i']
+r2fin      Find finesse with reflectivity                     Required Arguments: ['R']
+fin2r      Find reflectivity with finesse                     Required Arguments: ['Finesse']
+q/quit     Quit the toolkit                                   Required Arguments: ['NONE']
+help       Show this help message                             Required Arguments: ['NONE']
 ```
 
 ## Command Usage
@@ -27,11 +29,11 @@ ECE318_toolkit >> fr 1.5 1 60deg
 Total Internal Reflection
 phi_te:  -1.671 = -95.741 deg		phi_tm:  0.7645 = 43.803 deg
 ```
-### fin (Find finesse coef)
-fin supports both percentage expression and float expression.
+### fin2r/r2fin (Find finesse coef from reflectivity, and vice versa)
+fin2r supports both percentage expression and float expression.
 ```
-ECE318_toolkit >> fin 0.95
-Finesse:  61.24091501940472
-ECE318_toolkit >> fin 95%
-Finesse:  61.24091501940472
+ECE318_toolkit >> fin2r 76.95
+Reflectivity: 0.959998
+ECE318_toolkit >> r2fin 0.96
+Coef of Finesse: 2400.0 Finesse:  76.953
 ```
