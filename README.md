@@ -8,6 +8,7 @@ ECE318 toolkit now support the following commands:
 fr         Find fresnal coef and return refractive angle      Required Arguments: ['ni', 'nt', 'theta_i']
 r2fin      Find finesse with reflectivity                     Required Arguments: ['R']
 fin2r      Find reflectivity with finesse                     Required Arguments: ['Finesse']
+prop       Convert between different light properties         Required Arguments: ['type', 'value'] 
 q/quit     Quit the toolkit                                   Required Arguments: ['NONE']
 help       Show this help message                             Required Arguments: ['NONE']
 ```
@@ -39,3 +40,19 @@ Coef of Finesse: 2400.0 Finesse:  76.953
 ECE318_toolkit >> r2fin 96%
 Coef of Finesse: 2400.0 Finesse:  76.953
 ```
+### prop (Convert between light's spacial and temporal properties)
+index of refraction initially setup to be 1.
+prop support input under standard SI units (suggest using scientific notation for nm, THz, ps etc).
+```
+ECE318_toolkit >> prop k 4.19E6
+index of refraction =  1
+k =  4.19e+06 rad/m,  f =  6.669e+05 m-1,  lam =  1.5e-06 m; 
+w =  1.256e+15 rad/s,  V =  1.999e+14 Hz,  T =  5.002e-15 s; 
+ECE318_toolkit >> prop n 1.2
+set up new index of refraction =  1.2
+ECE318_toolkit >> prop k 4.19E6
+index of refraction =  1.2
+k =  4.19e+06 rad/m,  f =  6.669e+05 m-1,  lam =  1.5e-06 m; 
+w =  1.047e+15 rad/s,  V =  1.666e+14 Hz,  T =  6.002e-15 s; 
+```
+
