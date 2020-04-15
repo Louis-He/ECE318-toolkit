@@ -75,7 +75,7 @@ def cmd_fresnal(cmd):
         print('r_te: ', res[1][0], '\t\tt_te: ', res[1][1])
         print('r_tm: ', res[1][2], '\t\tt_tm: ', res[1][3])
 
-def cmd_finesse(cmd):
+def cmd_r2fin(cmd):
     if len(cmd) != 2:
         print_args_error(cmd[0])
         return
@@ -84,22 +84,43 @@ def cmd_finesse(cmd):
         if R[-1:] == '%':
             R = float(R[:-1]) / 100.0
         elif float(R) > 1.0:
-            finesse_help()
+            r2fin_help()
             return -1
         elif float(R) < 0:
-            finesse_help()
+            r2fin_help()
             return -1
         else:
             R = float(R)
     except:
-        print_type_error("fin")
+        print_type_error("r2fin")
         return -1
 
 
     F = (4 * R) / ((1 - R) *(1 - R))
     fin = (np.pi * np.sqrt(F)) / 2
-    print('Finesse: ', fin)
+    print('Coef of Finesse:', round(F, 4), 'Finesse: ', round(fin, 4))
 
+def cmd_fin2r(cmd):
+    if len(cmd) != 2:
+        print_args_error(cmd[0])
+        return
+    Fin = cmd[1]
+    try:
+        Fin = float(Fin)
+        if(Fin < 0):
+            fin2r_help()
+            return -1
+    except:
+        print_type_error("fin2r")
+        return -1
+
+    F = np.power(2 * Fin / np.pi, 2)
+    coeff = [F, -(2 * F + 4), F]
+    R = np.roots(coeff)
+    if(R[0] > 1 or R[0] < 0):
+        print('Reflectivity:', round(R[1],6))
+    else:
+        print('Reflectivity:', round(R[0],6))
 
 if __name__ == '__main__':
     print_to_terminal("OKGREEN", "ECE318 toolkit version " + version)
@@ -127,5 +148,7 @@ if __name__ == '__main__':
             printhelp(cmd)
         elif cmd[0] == "fr":
             cmd_fresnal(cmd)
-        elif cmd[0] == "fin":
-            cmd_finesse(cmd)
+        elif cmd[0] == "r2fin":
+            cmd_r2fin(cmd)
+        elif cmd[0] == "fin2r":
+            cmd_fin2r(cmd)
