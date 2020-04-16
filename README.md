@@ -57,4 +57,11 @@ index of refraction =  1.2
 k =  4.189e+06 rad/m,  f =  6.667e+05 m-1,  lam =  1.5e-06 m; 
 w =  1.046e+15 rad/s,  V =  1.666e+14 Hz,  T =  6.004e-15 s; 
 ```
+### brew_crit (Find brewster angle and critical angle)
+brew_crit supports both radian and degree expression
+```
+ECE318_toolkit >> brew_crit 1.5 1
+Brester angle:  0.588003 = 33.690068 deg
+Critical angle:  0.729728 = 41.810315 deg
+```
 
