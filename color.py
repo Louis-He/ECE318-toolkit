@@ -10,7 +10,8 @@ cmdList = {
     "fin2r": {"args": ["Finesse"], "types": ["float"], "desc": "Find reflectivity with finesse."},    
     "prop": {"args": ["type", "value"], "types": ["string", "float"], "desc": "Conversion between light spacial and temporal properties."},
     "q/quit": {"args": ["NONE"], "desc": "Quit the toolkit."},
-    "help": {"args": ["NONE"], "desc": "Show this help message."}
+    "help": {"args": ["NONE"], "desc": "Show this help message."},
+    "brew_crit": {"args": ["ni", "nt"], "types": ["float", "float"], "desc": "Find brewster angle and critical angle."},
 }
 
 def print_to_terminal(type, text):

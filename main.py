@@ -126,6 +126,25 @@ def cmd_fin2r(cmd):
     else:
         print('Reflectivity:', round(R[0],6))
 
+def cmd_brew_critical(cmd):
+    if len(cmd) != 3:
+        print_args_error(cmd[0])
+        return
+    ni, nt = cmd[1:]
+    try:
+        ni = float(ni)
+        nt = float(nt)
+
+        brewster = np.arctan(nt/ni)
+        if nt < ni:
+            critical = np.arcsin(nt/ni)
+
+    except:
+        print_type_error("brew_crit")
+        return -1
+    print("Brester angle: ", round(brewster, 6), '=', round(rad_2_deg(brewster), 6), "deg")
+    if nt < ni:
+        print("Critical angle: ", round(critical, 6), '=', round(rad_2_deg(critical), 6), "deg")
 
 if __name__ == '__main__':
     print_to_terminal("OKGREEN", "ECE318 toolkit version " + version)
@@ -159,3 +178,5 @@ if __name__ == '__main__':
             cmd_fin2r(cmd)        
         elif cmd[0] == "prop":
             cmd_convert(cmd)
+        elif cmd[0] == "brew_crit":
+            cmd_brew_critical(cmd)
